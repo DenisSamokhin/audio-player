@@ -27,7 +27,7 @@
 		925A1B1E1C9C0B7F0020A2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		925A1B211C9C0B7F0020A2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		925A1B231C9C0B7F0020A2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		925A1B291C9C111D0020A2BC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		925A1B291C9C111D0020A2BC /* Audio Player-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Audio Player-Prefix.pch"; sourceTree = "<group>"; };
 		AB1C6E650B12AAC58EE7263D /* Pods-Audio Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Audio Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Audio Player/Pods-Audio Player.debug.xcconfig"; sourceTree = "<group>"; };
 		D553BAC4246CABBE266951C2 /* Pods-Audio Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Audio Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Audio Player/Pods-Audio Player.release.xcconfig"; sourceTree = "<group>"; };
 		F6B199F6DDD37566EB572ABE /* libPods-Audio Player.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Audio Player.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				925A1B131C9C0B7F0020A2BC /* main.m */,
-				925A1B291C9C111D0020A2BC /* PrefixHeader.pch */,
+				925A1B291C9C111D0020A2BC /* Audio Player-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -280,6 +280,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -321,6 +322,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -339,7 +341,7 @@
 			baseConfigurationReference = AB1C6E650B12AAC58EE7263D /* Pods-Audio Player.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "Audio Player/Audio Player-Prefix.pch";
 				INFOPLIST_FILE = "Audio Player/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ITL.Audio-Player";
@@ -352,7 +354,7 @@
 			baseConfigurationReference = D553BAC4246CABBE266951C2 /* Pods-Audio Player.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "Audio Player/Audio Player-Prefix.pch";
 				INFOPLIST_FILE = "Audio Player/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ITL.Audio-Player";

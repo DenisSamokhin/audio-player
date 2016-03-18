@@ -9,6 +9,8 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#import <VKSdk/VKSdk.h>
+#import <VKSdk.h>
+
+#define VKAPPID @"5361424"
 
 #endif /* PrefixHeader_pch */

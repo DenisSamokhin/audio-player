@@ -14,9 +14,33 @@
 
 @implementation AppDelegate
 
+- (void)registerVkSDK {
+    VKSdk *sdkInstance = [VKSdk initializeWithAppId:VKAPPID];
+    [sdkInstance registerDelegate:self];
+    [sdkInstance setUiDelegate:self];
+}
+
+- (void)checkPreviousSession {
+    NSArray *SCOPE = @[@"friends", @"email", @"audio"];
+    
+    [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
+        if (state == VKAuthorizationAuthorized) {
+            // Authorized and ready to go
+        } else if (error) {
+            // Some error happend, but you may try later
+        }
+    }];
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self registerVkSDK];
+    [self checkPreviousSession];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    [VKSdk processOpenURL:url fromApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
     return YES;
 }
 
