@@ -183,7 +183,7 @@
 #pragma mark - VKSDK delegate
 
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
-    if (result.state != VKAuthorizationUnknown && result.state != VKAuthorizationError) {
+    if (result.state != VKAuthorizationUnknown && result.state != VKAuthorizationError && !result.error) {
         [self getVKUserInfo];
     }
 }
