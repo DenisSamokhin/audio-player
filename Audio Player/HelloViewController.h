@@ -12,8 +12,16 @@
     
     __weak IBOutlet UILabel *label;
     __weak IBOutlet UIButton *button;
+    __weak IBOutlet UIView *vkAuthView;
+    __weak IBOutlet UIView *authorizedView;
+    __weak IBOutlet UIImageView *userPhotoImageView;
+    __weak IBOutlet UILabel *userFullNameLabel;
+    __weak IBOutlet UIButton *continueButton;
+    __weak IBOutlet UIButton *logoutButton;
 }
 
 - (IBAction)buttonClicked:(id)sender;
+- (IBAction)continueButtonClicked:(id)sender;
+- (IBAction)logoutButtonClicked:(id)sender;
 
 @end

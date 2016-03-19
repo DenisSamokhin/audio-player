@@ -50,4 +50,59 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)wtf {
+    
+}
+
+// Public methods
+
++ (void)saveUserID:(NSString *)userID {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:userID forKey:UserIDKey];
+    [ud synchronize];
+}
+
++ (void)saveUserToken:(NSString *)token {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:token forKey:UserTokenKey];
+    [ud synchronize];
+}
+
++ (void)saveUserFirstName:(NSString *)firstName {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:firstName forKey:UserFirstNameKey];
+    [ud synchronize];
+}
+
++ (void)saveUserLastName:(NSString *)lastName {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:lastName forKey:UserLastNameKey];
+    [ud synchronize];
+}
+
++ (void)saveUserPhotoImage:(NSString *)filePath {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:filePath forKey:UserPhotoKey];
+    [ud synchronize];
+}
+
++ (User *)getUserInfo {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    User *user = [[User alloc] init];
+    user.userID = [ud objectForKey:UserIDKey];
+    user.firstName = [ud objectForKey:UserFirstNameKey];
+    user.lastName = [ud objectForKey:UserLastNameKey];
+    user.token = [ud objectForKey:UserTokenKey];
+    user.photo_200_image_path = [ud objectForKey:UserPhotoKey];
+    return user;
+}
+
++ (void)showStatusBarActivityIndicator {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
++ (void)hideStatusBarActivityIndicator {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
 @end

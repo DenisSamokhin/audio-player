@@ -29,6 +29,12 @@
     [self authorize];
 }
 
+- (IBAction)continueButtonClicked:(id)sender {
+}
+
+- (IBAction)logoutButtonClicked:(id)sender {
+}
+
 - (void)registerVkSDK {
     VKSdk *sdkInstance = [VKSdk initializeWithAppId:VKAPPID];
     [sdkInstance registerDelegate:self];
@@ -40,13 +46,102 @@
     [VKSdk authorize:SCOPE];
 }
 
+- (void)getVKUserInfo {
+    VKRequest *request = [[VKApi users] get];
+    request.attempts = 5;
+    [AppDelegate showStatusBarActivityIndicator];
+    [request executeWithResultBlock:^(VKResponse *response) {
+        [AppDelegate hideStatusBarActivityIndicator];
+        NSLog(@"Json result: %@", response.json);
+        VKUser *u = [response.parsedModel firstObject];
+        [AppDelegate saveUserID:[u.id stringValue]];
+        [AppDelegate saveUserFirstName:u.first_name];
+        [AppDelegate saveUserLastName:u.last_name];
+        [self getUsersPhoto];
+    } errorBlock:^(NSError * error) {
+        [AppDelegate hideStatusBarActivityIndicator];
+        if (error.code != VK_API_ERROR) {
+            [error.vkError.request repeat];
+        } else {
+            NSLog(@"VK error: %@", error);
+        }
+    }];
+}
+
+- (void)getUsersPhoto {
+    User *user = [AppDelegate getUserInfo];
+    VKRequest *request = [[VKApi users] get:@{@"user_ids":user.userID,@"fields":@"photo_200_orig"}];
+    request.attempts = 5;
+    [AppDelegate showStatusBarActivityIndicator];
+    [request executeWithResultBlock:^(VKResponse *response) {
+        [AppDelegate hideStatusBarActivityIndicator];
+        NSLog(@"Json result: %@", response.json);
+        VKUser *u = [response.parsedModel firstObject];
+        [self downloadImage:u.photo_200_orig];
+        [UIView animateWithDuration:0.6 animations:^{
+            [self updateAuthorizedView];
+            vkAuthView.hidden = YES;
+            authorizedView.hidden = NO;
+        }];
+    } errorBlock:^(NSError * error) {
+        [AppDelegate hideStatusBarActivityIndicator];
+        if (error.code != VK_API_ERROR) {
+            [error.vkError.request repeat];
+        } else {
+            NSLog(@"VK error: %@", error);
+        }
+    }];
+}
+
+- (void)downloadImage:(NSString *)imageURL {
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+    if (image) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsPath = [paths objectAtIndex:0];
+        NSData *imageData = UIImageJPEGRepresentation(image, 1);
+        NSString *imageName = [NSString stringWithFormat:@"user_id%@_avatar.jpg", [AppDelegate getUserInfo].userID];
+        NSString *imagePath = [documentsPath stringByAppendingPathComponent:imageName];
+        [imageData writeToFile:imagePath atomically:YES];
+        UIImage *imageNew = [UIImage imageWithContentsOfFile:imagePath];
+        [AppDelegate saveUserPhotoImage:imageName];
+        userPhotoImageView.image = image;
+    }else {
+        // Set default "No Icon" image
+    }
+    
+    
+}
+
+- (void)updateAuthorizedView {
+    User *user = [AppDelegate getUserInfo];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    NSString *imagePath = [documentsPath stringByAppendingPathComponent:user.photo_200_image_path];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    userPhotoImageView.image = image;
+    userFullNameLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
+}
+
 - (void)checkPreviousSession {
     NSArray *SCOPE = @[@"friends", @"email", @"audio"];
-    
+    [AppDelegate showStatusBarActivityIndicator];
     [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
+        [AppDelegate hideStatusBarActivityIndicator];
         if (state == VKAuthorizationAuthorized) {
-            // Authorized and ready to go
+            if ([AppDelegate getUserInfo].userID) {
+                [UIView animateWithDuration:0.6 animations:^{
+                    [self updateAuthorizedView];
+                    vkAuthView.hidden = YES;
+                    authorizedView.hidden = NO;
+                }];
+            }else {
+              [self getVKUserInfo];
+            }
         } else if (error) {
+            [UIView animateWithDuration:0.6 animations:^{
+                vkAuthView.hidden = NO;
+                authorizedView.hidden = YES;
+            }];
             [self authorize];
         }
     }];
@@ -55,7 +150,9 @@
 #pragma mark - VKSDK delegate
 
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
-    
+    if (result.state != VKAuthorizationUnknown && result.state != VKAuthorizationError) {
+        [self getVKUserInfo];
+    }
 }
 
 - (void)vkSdkUserAuthorizationFailed {

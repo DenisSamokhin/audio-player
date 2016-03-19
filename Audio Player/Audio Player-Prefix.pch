@@ -9,8 +9,15 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#import "AppDelegate.h"
 #import <VKSdk.h>
+#import "User.h"
 
 #define VKAPPID @"5361424"
+#define UserTokenKey @"UserTokenKey"
+#define UserIDKey @"UserIDKey"
+#define UserFirstNameKey @"UserFirstNameKey"
+#define UserLastNameKey @"UserLastNameKey"
+#define UserPhotoKey @"UserPhotoKey"
 
 #endif /* PrefixHeader_pch */
