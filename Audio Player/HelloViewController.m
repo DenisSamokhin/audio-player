@@ -38,6 +38,13 @@
 }
 
 - (IBAction)logoutButtonClicked:(id)sender {
+    [VKSdk forceLogout];
+    [UIView animateWithDuration:1 animations:^{
+        vkAuthView.alpha = 1;
+        authorizedView.alpha = 0;
+        vkAuthView.hidden = NO;
+        authorizedView.hidden = YES;
+    }];
 }
 
 - (void)registerVkSDK {
@@ -83,10 +90,12 @@
         NSLog(@"Json result: %@", response.json);
         VKUser *u = [response.parsedModel firstObject];
         [self downloadImage:u.photo_200_orig];
-        [UIView animateWithDuration:0.6 animations:^{
+        [UIView animateWithDuration:1 animations:^{
             [self updateAuthorizedView];
             [spinner dismiss];
             [spinner removeFromSuperview];
+            vkAuthView.alpha = 0;
+            authorizedView.alpha = 1;
             vkAuthView.hidden = YES;
             authorizedView.hidden = NO;
         }];
@@ -136,10 +145,12 @@
         [AppDelegate hideStatusBarActivityIndicator];
         if (state == VKAuthorizationAuthorized) {
             if ([AppDelegate getUserInfo].userID) {
-                [UIView animateWithDuration:0.6 animations:^{
+                [UIView animateWithDuration:1 animations:^{
                     [self updateAuthorizedView];
                     [spinner dismiss];
                     [spinner removeFromSuperview];
+                    vkAuthView.alpha = 0;
+                    authorizedView.alpha = 1;
                     vkAuthView.hidden = YES;
                     authorizedView.hidden = NO;
                 }];
@@ -147,22 +158,25 @@
               [self getVKUserInfo];
             }
         } else if (error) {
-            [UIView animateWithDuration:0.6 animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 [spinner dismiss];
                 [spinner removeFromSuperview];
+                vkAuthView.alpha = 1;
+                authorizedView.alpha = 0;
                 vkAuthView.hidden = NO;
                 authorizedView.hidden = YES;
             }];
             [self authorize];
         }else if (state == VKAuthorizationInitialized) {
-            [UIView animateWithDuration:0.6 animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 [spinner dismiss];
                 [spinner removeFromSuperview];
+                vkAuthView.alpha = 1;
+                authorizedView.alpha = 0;
                 vkAuthView.hidden = NO;
                 authorizedView.hidden = YES;
             }];
         }
-
     }];
 }
 
