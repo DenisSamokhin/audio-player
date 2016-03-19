@@ -18,6 +18,7 @@
     __weak IBOutlet UILabel *userFullNameLabel;
     __weak IBOutlet UIButton *continueButton;
     __weak IBOutlet UIButton *logoutButton;
+    FeEqualize *spinner;
 }
 
 - (IBAction)buttonClicked:(id)sender;

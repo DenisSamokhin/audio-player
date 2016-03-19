@@ -16,8 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    spinner = [[FeEqualize alloc] initWithView:self.view title:@"Loading"];
+    [self.view addSubview:spinner];
+    [spinner show];
     [self registerVkSDK];
     [self checkPreviousSession];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,6 +85,8 @@
         [self downloadImage:u.photo_200_orig];
         [UIView animateWithDuration:0.6 animations:^{
             [self updateAuthorizedView];
+            [spinner dismiss];
+            [spinner removeFromSuperview];
             vkAuthView.hidden = YES;
             authorizedView.hidden = NO;
         }];
@@ -131,6 +138,8 @@
             if ([AppDelegate getUserInfo].userID) {
                 [UIView animateWithDuration:0.6 animations:^{
                     [self updateAuthorizedView];
+                    [spinner dismiss];
+                    [spinner removeFromSuperview];
                     vkAuthView.hidden = YES;
                     authorizedView.hidden = NO;
                 }];
@@ -139,11 +148,21 @@
             }
         } else if (error) {
             [UIView animateWithDuration:0.6 animations:^{
+                [spinner dismiss];
+                [spinner removeFromSuperview];
                 vkAuthView.hidden = NO;
                 authorizedView.hidden = YES;
             }];
             [self authorize];
+        }else if (state == VKAuthorizationInitialized) {
+            [UIView animateWithDuration:0.6 animations:^{
+                [spinner dismiss];
+                [spinner removeFromSuperview];
+                vkAuthView.hidden = NO;
+                authorizedView.hidden = YES;
+            }];
         }
+
     }];
 }
 

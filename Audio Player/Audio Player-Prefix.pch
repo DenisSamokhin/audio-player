@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import <VKSdk.h>
 #import "User.h"
+#import "FeEqualize.h"
 
 #define VKAPPID @"5361424"
 #define UserTokenKey @"UserTokenKey"
