@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		925A1B141C9C0B7F0020A2BC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 925A1B131C9C0B7F0020A2BC /* main.m */; };
 		925A1B171C9C0B7F0020A2BC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 925A1B161C9C0B7F0020A2BC /* AppDelegate.m */; };
-		925A1B1A1C9C0B7F0020A2BC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925A1B191C9C0B7F0020A2BC /* ViewController.m */; };
 		925A1B1D1C9C0B7F0020A2BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925A1B1B1C9C0B7F0020A2BC /* Main.storyboard */; };
 		925A1B1F1C9C0B7F0020A2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925A1B1E1C9C0B7F0020A2BC /* Assets.xcassets */; };
 		925A1B221C9C0B7F0020A2BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925A1B201C9C0B7F0020A2BC /* LaunchScreen.storyboard */; };
+		925A1B2C1C9C207D0020A2BC /* HelloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925A1B2B1C9C207D0020A2BC /* HelloViewController.m */; };
+		92F3BEA71C9D3CDD0091D47D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F3BEA61C9D3CDD0091D47D /* User.m */; };
+		92F3BEA91C9D61420091D47D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F3BEA81C9D61420091D47D /* CoreGraphics.framework */; };
+		92F3BEAB1C9D61490091D47D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F3BEAA1C9D61490091D47D /* QuartzCore.framework */; };
+		92F3BEAF1C9D616F0091D47D /* FeEqualize.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F3BEAE1C9D616F0091D47D /* FeEqualize.m */; };
+		92F3BEB21C9D62200091D47D /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F3BEB11C9D62200091D47D /* UIColor+flat.m */; };
 		B5B60B118C32F659EC16C5BB /* libPods-Audio Player.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B199F6DDD37566EB572ABE /* libPods-Audio Player.a */; };
 /* End PBXBuildFile section */
 
@@ -21,13 +26,21 @@
 		925A1B131C9C0B7F0020A2BC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		925A1B151C9C0B7F0020A2BC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		925A1B161C9C0B7F0020A2BC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		925A1B181C9C0B7F0020A2BC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		925A1B191C9C0B7F0020A2BC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		925A1B1C1C9C0B7F0020A2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		925A1B1E1C9C0B7F0020A2BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		925A1B211C9C0B7F0020A2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		925A1B231C9C0B7F0020A2BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		925A1B291C9C111D0020A2BC /* Audio Player-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Audio Player-Prefix.pch"; sourceTree = "<group>"; };
+		925A1B2A1C9C207D0020A2BC /* HelloViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloViewController.h; sourceTree = "<group>"; };
+		925A1B2B1C9C207D0020A2BC /* HelloViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloViewController.m; sourceTree = "<group>"; };
+		92F3BEA51C9D3CDD0091D47D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
+		92F3BEA61C9D3CDD0091D47D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
+		92F3BEA81C9D61420091D47D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		92F3BEAA1C9D61490091D47D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		92F3BEAD1C9D616F0091D47D /* FeEqualize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeEqualize.h; sourceTree = "<group>"; };
+		92F3BEAE1C9D616F0091D47D /* FeEqualize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeEqualize.m; sourceTree = "<group>"; };
+		92F3BEB01C9D62200091D47D /* UIColor+flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+flat.h"; sourceTree = "<group>"; };
+		92F3BEB11C9D62200091D47D /* UIColor+flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+flat.m"; sourceTree = "<group>"; };
 		AB1C6E650B12AAC58EE7263D /* Pods-Audio Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Audio Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Audio Player/Pods-Audio Player.debug.xcconfig"; sourceTree = "<group>"; };
 		D553BAC4246CABBE266951C2 /* Pods-Audio Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Audio Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Audio Player/Pods-Audio Player.release.xcconfig"; sourceTree = "<group>"; };
 		F6B199F6DDD37566EB572ABE /* libPods-Audio Player.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Audio Player.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F3BEAB1C9D61490091D47D /* QuartzCore.framework in Frameworks */,
+				92F3BEA91C9D61420091D47D /* CoreGraphics.framework in Frameworks */,
 				B5B60B118C32F659EC16C5BB /* libPods-Audio Player.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,6 +63,8 @@
 		36FBE97E7678F07CD045F950 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92F3BEAA1C9D61490091D47D /* QuartzCore.framework */,
+				92F3BEA81C9D61420091D47D /* CoreGraphics.framework */,
 				F6B199F6DDD37566EB572ABE /* libPods-Audio Player.a */,
 			);
 			name = Frameworks;
@@ -83,10 +100,12 @@
 		925A1B111C9C0B7F0020A2BC /* Audio Player */ = {
 			isa = PBXGroup;
 			children = (
+				92F3BEAC1C9D61560091D47D /* Spinner */,
+				92F3BEA41C9D3CB10091D47D /* Models */,
 				925A1B151C9C0B7F0020A2BC /* AppDelegate.h */,
 				925A1B161C9C0B7F0020A2BC /* AppDelegate.m */,
-				925A1B181C9C0B7F0020A2BC /* ViewController.h */,
-				925A1B191C9C0B7F0020A2BC /* ViewController.m */,
+				925A1B2A1C9C207D0020A2BC /* HelloViewController.h */,
+				925A1B2B1C9C207D0020A2BC /* HelloViewController.m */,
 				925A1B1B1C9C0B7F0020A2BC /* Main.storyboard */,
 				925A1B1E1C9C0B7F0020A2BC /* Assets.xcassets */,
 				925A1B201C9C0B7F0020A2BC /* LaunchScreen.storyboard */,
@@ -103,6 +122,26 @@
 				925A1B291C9C111D0020A2BC /* Audio Player-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92F3BEA41C9D3CB10091D47D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				92F3BEA51C9D3CDD0091D47D /* User.h */,
+				92F3BEA61C9D3CDD0091D47D /* User.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		92F3BEAC1C9D61560091D47D /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				92F3BEAD1C9D616F0091D47D /* FeEqualize.h */,
+				92F3BEAE1C9D616F0091D47D /* FeEqualize.m */,
+				92F3BEB01C9D62200091D47D /* UIColor+flat.h */,
+				92F3BEB11C9D62200091D47D /* UIColor+flat.m */,
+			);
+			name = Spinner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,9 +265,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				925A1B1A1C9C0B7F0020A2BC /* ViewController.m in Sources */,
+				92F3BEA71C9D3CDD0091D47D /* User.m in Sources */,
 				925A1B171C9C0B7F0020A2BC /* AppDelegate.m in Sources */,
+				92F3BEAF1C9D616F0091D47D /* FeEqualize.m in Sources */,
 				925A1B141C9C0B7F0020A2BC /* main.m in Sources */,
+				92F3BEB21C9D62200091D47D /* UIColor+flat.m in Sources */,
+				925A1B2C1C9C207D0020A2BC /* HelloViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

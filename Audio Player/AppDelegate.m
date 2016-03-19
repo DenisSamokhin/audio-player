@@ -14,33 +14,17 @@
 
 @implementation AppDelegate
 
-- (void)registerVkSDK {
-    VKSdk *sdkInstance = [VKSdk initializeWithAppId:VKAPPID];
-    [sdkInstance registerDelegate:self];
-    [sdkInstance setUiDelegate:self];
-}
-
-- (void)checkPreviousSession {
-    NSArray *SCOPE = @[@"friends", @"email", @"audio"];
-    
-    [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
-        if (state == VKAuthorizationAuthorized) {
-            // Authorized and ready to go
-        } else if (error) {
-            // Some error happend, but you may try later
-        }
-    }];
-}
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self registerVkSDK];
-    [self checkPreviousSession];
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
     [VKSdk processOpenURL:url fromApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    [VKSdk processOpenURL:url fromApplication:sourceApplication];
     return YES;
 }
 
@@ -64,6 +48,61 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)wtf {
+    
+}
+
+// Public methods
+
++ (void)saveUserID:(NSString *)userID {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:userID forKey:UserIDKey];
+    [ud synchronize];
+}
+
++ (void)saveUserToken:(NSString *)token {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:token forKey:UserTokenKey];
+    [ud synchronize];
+}
+
++ (void)saveUserFirstName:(NSString *)firstName {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:firstName forKey:UserFirstNameKey];
+    [ud synchronize];
+}
+
++ (void)saveUserLastName:(NSString *)lastName {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:lastName forKey:UserLastNameKey];
+    [ud synchronize];
+}
+
++ (void)saveUserPhotoImage:(NSString *)filePath {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:filePath forKey:UserPhotoKey];
+    [ud synchronize];
+}
+
++ (User *)getUserInfo {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    User *user = [[User alloc] init];
+    user.userID = [ud objectForKey:UserIDKey];
+    user.firstName = [ud objectForKey:UserFirstNameKey];
+    user.lastName = [ud objectForKey:UserLastNameKey];
+    user.token = [ud objectForKey:UserTokenKey];
+    user.photo_200_image_path = [ud objectForKey:UserPhotoKey];
+    return user;
+}
+
++ (void)showStatusBarActivityIndicator {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
++ (void)hideStatusBarActivityIndicator {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 @end

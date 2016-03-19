@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, VKSdkDelegate, VKSdkUIDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
++ (void)saveUserID:(NSString *)userID;
++ (void)saveUserToken:(NSString *)token;
++ (void)saveUserFirstName:(NSString *)firstName;
++ (void)saveUserLastName:(NSString *)lastName;
++ (void)saveUserPhotoImage:(NSString *)filePath;
++ (User *)getUserInfo;
++ (void)showStatusBarActivityIndicator;
++ (void)hideStatusBarActivityIndicator;
 
 @end
 
