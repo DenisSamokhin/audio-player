@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92176CF11C9DE51000691D47 /* AudioListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF01C9DE51000691D47 /* AudioListTableViewController.m */; };
+		92176CF41C9DEEE200691D47 /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF31C9DEEE200691D47 /* Audio.m */; };
+		92176CF81C9DF2E100691D47 /* AudioListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF71C9DF2E100691D47 /* AudioListTableViewCell.m */; };
+		92176CFD1C9E86DF00691D47 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92176CFC1C9E86DF00691D47 /* AVKit.framework */; };
+		92176CFF1C9E87DF00691D47 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92176CFE1C9E87DF00691D47 /* AVFoundation.framework */; };
 		925A1B141C9C0B7F0020A2BC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 925A1B131C9C0B7F0020A2BC /* main.m */; };
 		925A1B171C9C0B7F0020A2BC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 925A1B161C9C0B7F0020A2BC /* AppDelegate.m */; };
 		925A1B1D1C9C0B7F0020A2BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925A1B1B1C9C0B7F0020A2BC /* Main.storyboard */; };
@@ -22,6 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92176CEF1C9DE51000691D47 /* AudioListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioListTableViewController.h; sourceTree = "<group>"; };
+		92176CF01C9DE51000691D47 /* AudioListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioListTableViewController.m; sourceTree = "<group>"; };
+		92176CF21C9DEEE200691D47 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Audio.h; path = Models/Audio.h; sourceTree = "<group>"; };
+		92176CF31C9DEEE200691D47 /* Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Audio.m; path = Models/Audio.m; sourceTree = "<group>"; };
+		92176CF61C9DF2E100691D47 /* AudioListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioListTableViewCell.h; path = "Custom Cells/AudioListTableViewCell.h"; sourceTree = "<group>"; };
+		92176CF71C9DF2E100691D47 /* AudioListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioListTableViewCell.m; path = "Custom Cells/AudioListTableViewCell.m"; sourceTree = "<group>"; };
+		92176CFC1C9E86DF00691D47 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		92176CFE1C9E87DF00691D47 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		925A1B0F1C9C0B7F0020A2BC /* Audio Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Audio Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		925A1B131C9C0B7F0020A2BC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		925A1B151C9C0B7F0020A2BC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92176CFF1C9E87DF00691D47 /* AVFoundation.framework in Frameworks */,
+				92176CFD1C9E86DF00691D47 /* AVKit.framework in Frameworks */,
 				92F3BEAB1C9D61490091D47D /* QuartzCore.framework in Frameworks */,
 				92F3BEA91C9D61420091D47D /* CoreGraphics.framework in Frameworks */,
 				B5B60B118C32F659EC16C5BB /* libPods-Audio Player.a in Frameworks */,
@@ -63,6 +78,8 @@
 		36FBE97E7678F07CD045F950 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92176CFE1C9E87DF00691D47 /* AVFoundation.framework */,
+				92176CFC1C9E86DF00691D47 /* AVKit.framework */,
 				92F3BEAA1C9D61490091D47D /* QuartzCore.framework */,
 				92F3BEA81C9D61420091D47D /* CoreGraphics.framework */,
 				F6B199F6DDD37566EB572ABE /* libPods-Audio Player.a */,
@@ -77,6 +94,15 @@
 				D553BAC4246CABBE266951C2 /* Pods-Audio Player.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		92176CF51C9DF23100691D47 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				92176CF61C9DF2E100691D47 /* AudioListTableViewCell.h */,
+				92176CF71C9DF2E100691D47 /* AudioListTableViewCell.m */,
+			);
+			name = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		925A1B061C9C0B7E0020A2BC = {
@@ -100,12 +126,15 @@
 		925A1B111C9C0B7F0020A2BC /* Audio Player */ = {
 			isa = PBXGroup;
 			children = (
+				92176CF51C9DF23100691D47 /* Custom Cells */,
 				92F3BEAC1C9D61560091D47D /* Spinner */,
 				92F3BEA41C9D3CB10091D47D /* Models */,
 				925A1B151C9C0B7F0020A2BC /* AppDelegate.h */,
 				925A1B161C9C0B7F0020A2BC /* AppDelegate.m */,
 				925A1B2A1C9C207D0020A2BC /* HelloViewController.h */,
 				925A1B2B1C9C207D0020A2BC /* HelloViewController.m */,
+				92176CEF1C9DE51000691D47 /* AudioListTableViewController.h */,
+				92176CF01C9DE51000691D47 /* AudioListTableViewController.m */,
 				925A1B1B1C9C0B7F0020A2BC /* Main.storyboard */,
 				925A1B1E1C9C0B7F0020A2BC /* Assets.xcassets */,
 				925A1B201C9C0B7F0020A2BC /* LaunchScreen.storyboard */,
@@ -129,6 +158,8 @@
 			children = (
 				92F3BEA51C9D3CDD0091D47D /* User.h */,
 				92F3BEA61C9D3CDD0091D47D /* User.m */,
+				92176CF21C9DEEE200691D47 /* Audio.h */,
+				92176CF31C9DEEE200691D47 /* Audio.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -265,12 +296,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92176CF11C9DE51000691D47 /* AudioListTableViewController.m in Sources */,
 				92F3BEA71C9D3CDD0091D47D /* User.m in Sources */,
 				925A1B171C9C0B7F0020A2BC /* AppDelegate.m in Sources */,
 				92F3BEAF1C9D616F0091D47D /* FeEqualize.m in Sources */,
+				92176CF41C9DEEE200691D47 /* Audio.m in Sources */,
 				925A1B141C9C0B7F0020A2BC /* main.m in Sources */,
 				92F3BEB21C9D62200091D47D /* UIColor+flat.m in Sources */,
 				925A1B2C1C9C207D0020A2BC /* HelloViewController.m in Sources */,
+				92176CF81C9DF2E100691D47 /* AudioListTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
