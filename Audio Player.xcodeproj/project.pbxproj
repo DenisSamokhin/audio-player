@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920E09F01CA28B2500C8192D /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920E09EF1CA28B2500C8192D /* PlayerViewController.m */; };
 		92176CF11C9DE51000691D47 /* AudioListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF01C9DE51000691D47 /* AudioListTableViewController.m */; };
 		92176CF41C9DEEE200691D47 /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF31C9DEEE200691D47 /* Audio.m */; };
 		92176CF81C9DF2E100691D47 /* AudioListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF71C9DF2E100691D47 /* AudioListTableViewCell.m */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		920E09EE1CA28B2500C8192D /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		920E09EF1CA28B2500C8192D /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		92176CEF1C9DE51000691D47 /* AudioListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioListTableViewController.h; sourceTree = "<group>"; };
 		92176CF01C9DE51000691D47 /* AudioListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioListTableViewController.m; sourceTree = "<group>"; };
 		92176CF21C9DEEE200691D47 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Audio.h; path = Models/Audio.h; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				925A1B2B1C9C207D0020A2BC /* HelloViewController.m */,
 				92176CEF1C9DE51000691D47 /* AudioListTableViewController.h */,
 				92176CF01C9DE51000691D47 /* AudioListTableViewController.m */,
+				920E09EE1CA28B2500C8192D /* PlayerViewController.h */,
+				920E09EF1CA28B2500C8192D /* PlayerViewController.m */,
 				925A1B1B1C9C0B7F0020A2BC /* Main.storyboard */,
 				925A1B1E1C9C0B7F0020A2BC /* Assets.xcassets */,
 				925A1B201C9C0B7F0020A2BC /* LaunchScreen.storyboard */,
@@ -305,6 +310,7 @@
 				92F3BEB21C9D62200091D47D /* UIColor+flat.m in Sources */,
 				925A1B2C1C9C207D0020A2BC /* HelloViewController.m in Sources */,
 				92176CF81C9DF2E100691D47 /* AudioListTableViewCell.m in Sources */,
+				920E09F01CA28B2500C8192D /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

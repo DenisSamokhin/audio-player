@@ -81,7 +81,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    Audio *audio = tableViewDataSource[indexPath.row];
+    PlayerViewController *playerVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"playerVC"];
+    playerVC.selectedAudio = audio;
+    [self.navigationController pushViewController:playerVC animated:YES];
 }
 
 

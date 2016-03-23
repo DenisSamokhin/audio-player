@@ -225,15 +225,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBx-P2-Sf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1799" y="357"/>
+            <point key="canvasLocation" x="1743" y="357"/>
         </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="3Ad-oj-stn">
+        <!--Player View Controller-->
+        <scene sceneID="sdQ-Tg-iXm">
             <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="4Hq-F1-kAo" customClass="pla" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BrL-xs-FPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="playerVC" id="ZgD-82-G7g" customClass="PlayerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DQs-pJ-OnC"/>
+                        <viewControllerLayoutGuide type="bottom" id="gqG-zw-ZcS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M5g-e8-gIL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tav-hQ-qel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2439" y="357"/>
+            <point key="canvasLocation" x="2450" y="357"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4R5-QS-9zX">
