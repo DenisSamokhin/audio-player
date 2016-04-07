@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		920E09F01CA28B2500C8192D /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920E09EF1CA28B2500C8192D /* PlayerViewController.m */; };
+		920E09F21CA2994A00C8192D /* HU-levitate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F11CA2994A00C8192D /* HU-levitate.mp3 */; };
 		92176CF11C9DE51000691D47 /* AudioListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF01C9DE51000691D47 /* AudioListTableViewController.m */; };
 		92176CF41C9DEEE200691D47 /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF31C9DEEE200691D47 /* Audio.m */; };
 		92176CF81C9DF2E100691D47 /* AudioListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF71C9DF2E100691D47 /* AudioListTableViewCell.m */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		920E09EE1CA28B2500C8192D /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		920E09EF1CA28B2500C8192D /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		920E09F11CA2994A00C8192D /* HU-levitate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "HU-levitate.mp3"; sourceTree = "<group>"; };
 		92176CEF1C9DE51000691D47 /* AudioListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioListTableViewController.h; sourceTree = "<group>"; };
 		92176CF01C9DE51000691D47 /* AudioListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioListTableViewController.m; sourceTree = "<group>"; };
 		92176CF21C9DEEE200691D47 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Audio.h; path = Models/Audio.h; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		925A1B121C9C0B7F0020A2BC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				920E09F11CA2994A00C8192D /* HU-levitate.mp3 */,
 				925A1B131C9C0B7F0020A2BC /* main.m */,
 				925A1B291C9C111D0020A2BC /* Audio Player-Prefix.pch */,
 			);
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				925A1B221C9C0B7F0020A2BC /* LaunchScreen.storyboard in Resources */,
+				920E09F21CA2994A00C8192D /* HU-levitate.mp3 in Resources */,
 				925A1B1F1C9C0B7F0020A2BC /* Assets.xcassets in Resources */,
 				925A1B1D1C9C0B7F0020A2BC /* Main.storyboard in Resources */,
 			);
