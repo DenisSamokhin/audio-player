@@ -32,6 +32,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)segmentControlValueChanged:(id)sender {
+    if ([sender isKindOfClass:[UISegmentedControl class]] && sender == segmentControl) {
+        NSInteger index = [segmentControl selectedSegmentIndex];
+        if (index == 0) {
+            // My audios
+            [tableViewDataSource removeAllObjects];
+            [self getAudioList];
+        }else if (index == 1) {
+            // Downloaded
+            [tableViewDataSource removeAllObjects];
+            // Create data source for downloaded audios
+        }
+        [listTableView reloadData];
+    }
+    
+    // Refresh tableView
+}
+
+- (IBAction)downloadButtonClicked:(id)sender {
+    UIButton *downloadButton = sender;
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero
+                                           toView:listTableView];
+    NSIndexPath *highlightedIndexPath = [listTableView indexPathForRowAtPoint:buttonPosition];
+    Audio *audio = tableViewDataSource[highlightedIndexPath.row];
+    NSString *url = audio.url;
+    // Download audio with url
+}
+
 #pragma mark - Data Source 
 
 - (void)getAudioList {
@@ -71,13 +99,22 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"AudioListCell";
-    AudioListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    Audio *audio = tableViewDataSource[indexPath.row];
-    cell.titleLabel.text = audio.title;
-    cell.artistLabel.text = audio.artist;
+    if (segmentControl.selectedSegmentIndex == 0) {
+        AudioListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AudioListCell" forIndexPath:indexPath];
+        Audio *audio = tableViewDataSource[indexPath.row];
+        cell.titleLabel.text = audio.title;
+        cell.artistLabel.text = audio.artist;
+        
+        return cell;
+    }else {
+        DownloadedAudioListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DownloadedAudioListCell" forIndexPath:indexPath];
+        DownloadedAudio *audio = tableViewDataSource[indexPath.row];
+        cell.titleLabel.text = audio.title;
+        cell.artistLabel.text = audio.artist;
+        
+        return cell;
+    }
     
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -86,6 +123,8 @@
     playerVC.selectedAudio = audio;
     [self.navigationController pushViewController:playerVC animated:YES];
 }
+
+
 
 
 /*

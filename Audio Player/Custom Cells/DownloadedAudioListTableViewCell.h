@@ -1,16 +1,16 @@
 //
-//  AudioListTableViewCell.h
+//  DownloadedAudioListTableViewCell.h
 //  Audio Player
 //
-//  Created by Denis on 3/19/16.
+//  Created by Denis on 4/10/16.
 //  Copyright © 2016 ITLions. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface AudioListTableViewCell : UITableViewCell
+@interface DownloadedAudioListTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 
 @end
