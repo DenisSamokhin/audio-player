@@ -10,7 +10,7 @@
 
 @interface DownloadedAudio : NSObject <NSCoding>
 
-@property(nonatomic, strong) NSString *path;
+@property(nonatomic, strong) NSString *filename;
 @property(nonatomic, strong) Audio *audioDetails;
 
 - (id)initWithDictionary:(NSDictionary *)dict;

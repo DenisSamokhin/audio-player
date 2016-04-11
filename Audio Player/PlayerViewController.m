@@ -16,15 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = self.selectedAudio.audioDetails.title;
-    // Do any additional setup after loading the view.
-    NSString *path = self.selectedAudio.path;
-    NSURL *url = [NSURL fileURLWithPath:path];
-    NSError *error = nil;
-    player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    if (error) {
-        NSLog(@"%@", error);
-    }
+    [self configurePlayer];
+    
     
     
 }
@@ -54,6 +47,27 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)configurePlayer {
+    NSURL *url;
+    if (self.selectedAudio) {
+        self.title = self.selectedAudio.title;
+        NSString *path = self.selectedAudio.url;
+        url = [NSURL URLWithString:path];
+        
+    }else if (self.selectedDownloadedAudio) {
+        self.title = self.selectedDownloadedAudio.audioDetails.title;
+        NSString *path = [AppDelegate getPathToFile:self.selectedDownloadedAudio.filename];
+        url = [NSURL fileURLWithPath:path];
+    }
+    NSError *error = nil;
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    if (error) {
+        NSLog(@"%@", error);
+    }else {
+        [self playPauseButtonClicked:playPauseButton];
+    }
+}
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     [playPauseButton setTitle:@"Play" forState:UIControlStateNormal];

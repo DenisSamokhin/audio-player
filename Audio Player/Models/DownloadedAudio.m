@@ -12,20 +12,20 @@
 
 - (id)initWithDictionary:(NSDictionary *)dict {
     if (dict) {
-        self.path = dict[@"path"];
+        self.filename = dict[@"filename"];
         self.audioDetails = dict[@"audioDetails"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder{
-    [encoder encodeObject:self.path forKey:@"path"];
+    [encoder encodeObject:self.filename forKey:@"filename"];
     [encoder encodeObject:self.audioDetails forKey:@"audioDetails"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        self.path = [decoder decodeObjectForKey:@"path"];
+        self.filename = [decoder decodeObjectForKey:@"filename"];
         self.audioDetails = [decoder decodeObjectForKey:@"audioDetails"];
     }
     return self;

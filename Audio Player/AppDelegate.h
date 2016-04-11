@@ -24,6 +24,7 @@
 + (BOOL)checkIfFileExists:(NSString *)filename;
 + (void)saveListOfDownloadedAudios:(NSMutableArray *)audiosList;
 + (NSMutableArray *)getListOfDownloadedAudios;
++ (NSString *)getPathToFile:(NSString *)filename;
 
 @end
 

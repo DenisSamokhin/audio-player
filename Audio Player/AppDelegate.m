@@ -129,4 +129,11 @@
     return array;
 }
 
++ (NSString *)getPathToFile:(NSString *)filename {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths  objectAtIndex:0];
+    NSString *dataPath = [path stringByAppendingPathComponent:filename];
+    return dataPath;
+}
+
 @end

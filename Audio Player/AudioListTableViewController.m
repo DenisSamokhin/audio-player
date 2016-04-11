@@ -25,6 +25,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     tableViewDataSource = [NSMutableArray new];
     downloadedAudioListArray = [AppDelegate getListOfDownloadedAudios];
+    if (!downloadedAudioListArray) {
+        downloadedAudioListArray = [NSMutableArray new];
+    }
     self.title = @"My Audios";
     [self getAudioList];
 }
@@ -174,13 +177,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (segmentControl.selectedSegmentIndex == 0) {
         Audio *audio = tableViewDataSource[indexPath.row];
-        PlayerViewController *playerVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"playerVC"];
-        playerVC.selectedAudio = audio;
-        [self.navigationController pushViewController:playerVC animated:YES];
+        AudioListTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//        PlayerViewController *playerVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"playerVC"];
+//        playerVC.selectedAudio = audio;
+//        [self.navigationController pushViewController:playerVC animated:YES];
+        if (audio.state == NotDownloaded) {
+            [self downloadButtonClicked:cell.downloadButton];
+        }
     }else {
         DownloadedAudio *audio = downloadedAudioListArray[indexPath.row];
         PlayerViewController *playerVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"playerVC"];
-        playerVC.selectedAudio = audio;
+        playerVC.selectedDownloadedAudio = audio;
         [self.navigationController pushViewController:playerVC animated:YES];
     }
     

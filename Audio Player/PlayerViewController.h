@@ -24,7 +24,8 @@
     NSTimer *timer;
 }
 
-@property (nonatomic, strong) DownloadedAudio *selectedAudio;
+@property (nonatomic, strong) DownloadedAudio *selectedDownloadedAudio;
+@property (nonatomic, strong) Audio *selectedAudio;
 
 - (IBAction)playPauseButtonClicked:(id)sender;
 - (IBAction)volumeSliderDidChangeValue:(UISlider *)sender;
