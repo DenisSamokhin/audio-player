@@ -50,10 +50,6 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (void)wtf {
-    
-}
-
 // Public methods
 
 + (void)saveUserID:(NSString *)userID {
@@ -103,6 +99,41 @@
 
 + (void)hideStatusBarActivityIndicator {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
++ (BOOL)checkIfFileExists:(NSString *)filename {
+    BOOL exists = NO;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths  objectAtIndex:0];
+    NSString *dataPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", filename]];
+    exists = [[NSFileManager defaultManager] fileExistsAtPath:dataPath];
+    return exists;
+}
+
++ (void)saveListOfDownloadedAudios:(NSMutableArray *)audiosList {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"downloadedAudioList.txt"];
+
+    [NSKeyedArchiver archiveRootObject:audiosList toFile:appFile];
+    
+    NSMutableArray *myArray = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+    NSLog(@"Saved audios\n%@",myArray);
+}
+
++ (NSMutableArray *)getListOfDownloadedAudios {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"downloadedAudioList.txt"];
+    NSMutableArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+    return array;
+}
+
++ (NSString *)getPathToFile:(NSString *)filename {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths  objectAtIndex:0];
+    NSString *dataPath = [path stringByAppendingPathComponent:filename];
+    return dataPath;
 }
 
 @end

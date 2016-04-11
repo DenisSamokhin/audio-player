@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "AudioListTableViewCell.h"
+#import "DownloadedAudioListTableViewCell.h"
 
-@interface AudioListTableViewController : UITableViewController {
+@interface AudioListTableViewController : UITableViewController <DownloaderDelegate> {
     NSMutableArray *tableViewDataSource;
+    __weak IBOutlet UISegmentedControl *segmentControl;
+    IBOutlet UITableView *listTableView;
+    NSMutableArray *downloadedAudioListArray;
+    DownloadQueue *dq;
 }
+
+- (IBAction)segmentControlValueChanged:(id)sender;
+- (IBAction)downloadButtonClicked:(id)sender;
 
 @end

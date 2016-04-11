@@ -7,9 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import "DownloadedAudio.h"
 
-@interface PlayerViewController : UIViewController
+@interface PlayerViewController : UIViewController <AVAudioPlayerDelegate>{
+    
+    __weak IBOutlet UIView *audioIconView;
+    __weak IBOutlet UIView *controlsView;
+    __weak IBOutlet UIButton *playPauseButton;
+    AVAudioPlayer *player;
+    __weak IBOutlet UISlider *durationSlider;
+    
+    __weak IBOutlet UISlider *volumeSlider;
+    __weak IBOutlet UILabel *currentTimePositionLabel;
+    __weak IBOutlet UILabel *totalDurationLabel;
+    NSTimer *timer;
+}
 
+@property (nonatomic, strong) DownloadedAudio *selectedDownloadedAudio;
 @property (nonatomic, strong) Audio *selectedAudio;
+
+- (IBAction)playPauseButtonClicked:(id)sender;
+- (IBAction)volumeSliderDidChangeValue:(UISlider *)sender;
+- (IBAction)durationSliderDidChangeValue:(UISlider *)sender;
 
 @end

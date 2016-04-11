@@ -11,5 +11,6 @@
 @interface AudioListTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 
 @end

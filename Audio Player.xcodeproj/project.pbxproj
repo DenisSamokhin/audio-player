@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		920E09F01CA28B2500C8192D /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920E09EF1CA28B2500C8192D /* PlayerViewController.m */; };
+		920E09F21CA2994A00C8192D /* HU-levitate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 920E09F11CA2994A00C8192D /* HU-levitate.mp3 */; };
 		92176CF11C9DE51000691D47 /* AudioListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF01C9DE51000691D47 /* AudioListTableViewController.m */; };
 		92176CF41C9DEEE200691D47 /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF31C9DEEE200691D47 /* Audio.m */; };
 		92176CF81C9DF2E100691D47 /* AudioListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92176CF71C9DF2E100691D47 /* AudioListTableViewCell.m */; };
@@ -19,6 +20,10 @@
 		925A1B1F1C9C0B7F0020A2BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925A1B1E1C9C0B7F0020A2BC /* Assets.xcassets */; };
 		925A1B221C9C0B7F0020A2BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925A1B201C9C0B7F0020A2BC /* LaunchScreen.storyboard */; };
 		925A1B2C1C9C207D0020A2BC /* HelloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925A1B2B1C9C207D0020A2BC /* HelloViewController.m */; };
+		92C3D7691CBA6EB500D918C8 /* DownloadedAudioListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C3D7681CBA6EB500D918C8 /* DownloadedAudioListTableViewCell.m */; };
+		92C3D76C1CBA6EE600D918C8 /* DownloadedAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C3D76B1CBA6EE600D918C8 /* DownloadedAudio.m */; };
+		92C3D7701CBA763F00D918C8 /* DownloadQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C3D76F1CBA763F00D918C8 /* DownloadQueue.m */; };
+		92C3D7731CBA767A00D918C8 /* DownloadAudioOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C3D7721CBA767A00D918C8 /* DownloadAudioOperation.m */; };
 		92F3BEA71C9D3CDD0091D47D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F3BEA61C9D3CDD0091D47D /* User.m */; };
 		92F3BEA91C9D61420091D47D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F3BEA81C9D61420091D47D /* CoreGraphics.framework */; };
 		92F3BEAB1C9D61490091D47D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F3BEAA1C9D61490091D47D /* QuartzCore.framework */; };
@@ -30,6 +35,7 @@
 /* Begin PBXFileReference section */
 		920E09EE1CA28B2500C8192D /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		920E09EF1CA28B2500C8192D /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		920E09F11CA2994A00C8192D /* HU-levitate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "HU-levitate.mp3"; sourceTree = "<group>"; };
 		92176CEF1C9DE51000691D47 /* AudioListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioListTableViewController.h; sourceTree = "<group>"; };
 		92176CF01C9DE51000691D47 /* AudioListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioListTableViewController.m; sourceTree = "<group>"; };
 		92176CF21C9DEEE200691D47 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Audio.h; path = Models/Audio.h; sourceTree = "<group>"; };
@@ -49,6 +55,14 @@
 		925A1B291C9C111D0020A2BC /* Audio Player-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Audio Player-Prefix.pch"; sourceTree = "<group>"; };
 		925A1B2A1C9C207D0020A2BC /* HelloViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloViewController.h; sourceTree = "<group>"; };
 		925A1B2B1C9C207D0020A2BC /* HelloViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloViewController.m; sourceTree = "<group>"; };
+		92C3D7671CBA6EB500D918C8 /* DownloadedAudioListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadedAudioListTableViewCell.h; path = "Custom Cells/DownloadedAudioListTableViewCell.h"; sourceTree = "<group>"; };
+		92C3D7681CBA6EB500D918C8 /* DownloadedAudioListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadedAudioListTableViewCell.m; path = "Custom Cells/DownloadedAudioListTableViewCell.m"; sourceTree = "<group>"; };
+		92C3D76A1CBA6EE600D918C8 /* DownloadedAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadedAudio.h; path = Models/DownloadedAudio.h; sourceTree = "<group>"; };
+		92C3D76B1CBA6EE600D918C8 /* DownloadedAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadedAudio.m; path = Models/DownloadedAudio.m; sourceTree = "<group>"; };
+		92C3D76E1CBA763F00D918C8 /* DownloadQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadQueue.h; path = Networking/DownloadQueue.h; sourceTree = "<group>"; };
+		92C3D76F1CBA763F00D918C8 /* DownloadQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadQueue.m; path = Networking/DownloadQueue.m; sourceTree = "<group>"; };
+		92C3D7711CBA767A00D918C8 /* DownloadAudioOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadAudioOperation.h; path = Networking/DownloadAudioOperation.h; sourceTree = "<group>"; };
+		92C3D7721CBA767A00D918C8 /* DownloadAudioOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadAudioOperation.m; path = Networking/DownloadAudioOperation.m; sourceTree = "<group>"; };
 		92F3BEA51C9D3CDD0091D47D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
 		92F3BEA61C9D3CDD0091D47D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
 		92F3BEA81C9D61420091D47D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -104,6 +118,8 @@
 			children = (
 				92176CF61C9DF2E100691D47 /* AudioListTableViewCell.h */,
 				92176CF71C9DF2E100691D47 /* AudioListTableViewCell.m */,
+				92C3D7671CBA6EB500D918C8 /* DownloadedAudioListTableViewCell.h */,
+				92C3D7681CBA6EB500D918C8 /* DownloadedAudioListTableViewCell.m */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -129,6 +145,7 @@
 		925A1B111C9C0B7F0020A2BC /* Audio Player */ = {
 			isa = PBXGroup;
 			children = (
+				92C3D76D1CBA760C00D918C8 /* Networking */,
 				92176CF51C9DF23100691D47 /* Custom Cells */,
 				92F3BEAC1C9D61560091D47D /* Spinner */,
 				92F3BEA41C9D3CB10091D47D /* Models */,
@@ -152,10 +169,22 @@
 		925A1B121C9C0B7F0020A2BC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				920E09F11CA2994A00C8192D /* HU-levitate.mp3 */,
 				925A1B131C9C0B7F0020A2BC /* main.m */,
 				925A1B291C9C111D0020A2BC /* Audio Player-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92C3D76D1CBA760C00D918C8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				92C3D76E1CBA763F00D918C8 /* DownloadQueue.h */,
+				92C3D76F1CBA763F00D918C8 /* DownloadQueue.m */,
+				92C3D7711CBA767A00D918C8 /* DownloadAudioOperation.h */,
+				92C3D7721CBA767A00D918C8 /* DownloadAudioOperation.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		92F3BEA41C9D3CB10091D47D /* Models */ = {
@@ -165,6 +194,8 @@
 				92F3BEA61C9D3CDD0091D47D /* User.m */,
 				92176CF21C9DEEE200691D47 /* Audio.h */,
 				92176CF31C9DEEE200691D47 /* Audio.m */,
+				92C3D76A1CBA6EE600D918C8 /* DownloadedAudio.h */,
+				92C3D76B1CBA6EE600D918C8 /* DownloadedAudio.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -241,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				925A1B221C9C0B7F0020A2BC /* LaunchScreen.storyboard in Resources */,
+				920E09F21CA2994A00C8192D /* HU-levitate.mp3 in Resources */,
 				925A1B1F1C9C0B7F0020A2BC /* Assets.xcassets in Resources */,
 				925A1B1D1C9C0B7F0020A2BC /* Main.storyboard in Resources */,
 			);
@@ -303,14 +335,18 @@
 			files = (
 				92176CF11C9DE51000691D47 /* AudioListTableViewController.m in Sources */,
 				92F3BEA71C9D3CDD0091D47D /* User.m in Sources */,
+				92C3D7691CBA6EB500D918C8 /* DownloadedAudioListTableViewCell.m in Sources */,
 				925A1B171C9C0B7F0020A2BC /* AppDelegate.m in Sources */,
+				92C3D7701CBA763F00D918C8 /* DownloadQueue.m in Sources */,
 				92F3BEAF1C9D616F0091D47D /* FeEqualize.m in Sources */,
 				92176CF41C9DEEE200691D47 /* Audio.m in Sources */,
 				925A1B141C9C0B7F0020A2BC /* main.m in Sources */,
+				92C3D7731CBA767A00D918C8 /* DownloadAudioOperation.m in Sources */,
 				92F3BEB21C9D62200091D47D /* UIColor+flat.m in Sources */,
 				925A1B2C1C9C207D0020A2BC /* HelloViewController.m in Sources */,
 				92176CF81C9DF2E100691D47 /* AudioListTableViewCell.m in Sources */,
 				920E09F01CA28B2500C8192D /* PlayerViewController.m in Sources */,
+				92C3D76C1CBA6EE600D918C8 /* DownloadedAudio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
