@@ -10,4 +10,34 @@
 
 @implementation DownloadAudioOperation
 
+- (id)initWithURL:(NSURL*)url andAudio:(Audio *)audio {
+    if (![super init]) return nil;
+    [self setTargetURL:url];
+    [self setAudio:audio];
+    return self;
+}
+
+- (void)main {
+    NSURLSessionDownloadTask *downloadAudioTask = [[NSURLSession sharedSession]
+                                                   downloadTaskWithURL:self.targetURL completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+                                                       //Find a cache directory. You could consider using documenets dir instead (depends on the data you are fetching)
+                                                       NSData *data = [NSData dataWithContentsOfURL:location];
+                                                       NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+                                                       NSString *path = [paths  objectAtIndex:0];
+                                                       NSString *dataPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", self.audio.audioId]];
+                                                       //dataPath = [dataPath stringByAppendingPathComponent:self.audio.audioId];
+                                                       dataPath = [dataPath stringByStandardizingPath];
+                                                       BOOL success = [data writeToFile:dataPath atomically:YES];
+                                                       DownloadedAudio *downloadedAudio = [[DownloadedAudio alloc] initWithDictionary:@{@"path":dataPath, @"audioDetails":self.audio}];
+                                                       NSLog(@"Audio with name '%@' has been downloaded", downloadedAudio.audioDetails.title);
+                                                       [[DownloadQueue shared] audioLoaded:downloadedAudio];
+//                                                       [[DownloadQueue shared] performSelectorOnMainThread:@selector(audioLoaded:)
+//                                                                                                withObject:downloadedAudio
+//                                                                                             waitUntilDone:YES];
+                                                   }];
+    
+    [downloadAudioTask resume];
+    
+}
+
 @end

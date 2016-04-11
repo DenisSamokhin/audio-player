@@ -12,9 +12,21 @@
 
 - (id)initWithDictionary:(NSDictionary *)dict {
     if (dict) {
-        self.artist = dict[@"artist"];
-        self.title = dict[@"title"];
-        self.audioDetails = dict[@"auidoDetails"];
+        self.path = dict[@"path"];
+        self.audioDetails = dict[@"audioDetails"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder{
+    [encoder encodeObject:self.path forKey:@"path"];
+    [encoder encodeObject:self.audioDetails forKey:@"audioDetails"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.path = [decoder decodeObjectForKey:@"path"];
+        self.audioDetails = [decoder decodeObjectForKey:@"audioDetails"];
     }
     return self;
 }

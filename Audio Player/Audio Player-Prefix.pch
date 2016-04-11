@@ -16,6 +16,7 @@
 #import "FeEqualize.h"
 #import "PlayerViewController.h"
 #import "DownloadedAudio.h"
+#import "DownloadQueue.h"
 
 #define VKAPPID @"5361424"
 #define UserTokenKey @"UserTokenKey"

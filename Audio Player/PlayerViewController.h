@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "DownloadedAudio.h"
 
 @interface PlayerViewController : UIViewController <AVAudioPlayerDelegate>{
     
@@ -23,7 +24,7 @@
     NSTimer *timer;
 }
 
-@property (nonatomic, strong) Audio *selectedAudio;
+@property (nonatomic, strong) DownloadedAudio *selectedAudio;
 
 - (IBAction)playPauseButtonClicked:(id)sender;
 - (IBAction)volumeSliderDidChangeValue:(UISlider *)sender;

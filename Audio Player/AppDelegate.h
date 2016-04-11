@@ -21,6 +21,9 @@
 + (User *)getUserInfo;
 + (void)showStatusBarActivityIndicator;
 + (void)hideStatusBarActivityIndicator;
++ (BOOL)checkIfFileExists:(NSString *)filename;
++ (void)saveListOfDownloadedAudios:(NSMutableArray *)audiosList;
++ (NSMutableArray *)getListOfDownloadedAudios;
 
 @end
 

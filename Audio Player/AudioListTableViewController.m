@@ -16,13 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    dq = [DownloadQueue shared];
+    dq.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     tableViewDataSource = [NSMutableArray new];
+    downloadedAudioListArray = [AppDelegate getListOfDownloadedAudios];
     self.title = @"My Audios";
     [self getAudioList];
 }
@@ -37,12 +39,8 @@
         NSInteger index = [segmentControl selectedSegmentIndex];
         if (index == 0) {
             // My audios
-            [tableViewDataSource removeAllObjects];
-            [self getAudioList];
         }else if (index == 1) {
             // Downloaded
-            [tableViewDataSource removeAllObjects];
-            // Create data source for downloaded audios
         }
         [listTableView reloadData];
     }
@@ -56,8 +54,52 @@
                                            toView:listTableView];
     NSIndexPath *highlightedIndexPath = [listTableView indexPathForRowAtPoint:buttonPosition];
     Audio *audio = tableViewDataSource[highlightedIndexPath.row];
-    NSString *url = audio.url;
-    // Download audio with url
+    audio.state = Downloading;
+    [tableViewDataSource replaceObjectAtIndex:highlightedIndexPath.row withObject:audio];
+    [self setButtonDownloadingState:downloadButton];
+    [dq downloadAudio:audio];
+}
+
+- (void)setButtonDownloadingState:(UIButton *)button {
+    [button setTitle:@"Downloading" forState:UIControlStateNormal];
+    button.enabled = NO;
+}
+
+- (void)setButtonDownloadedState:(UIButton *)button {
+    [button setTitle:@"Downloaded" forState:UIControlStateNormal];
+    button.enabled = NO;
+}
+
+- (void)setButtonNotDownloadedState:(UIButton *)button {
+    [button setTitle:@"Download" forState:UIControlStateNormal];
+    button.enabled = YES;
+}
+
+#pragma mark - Downloader Delegate
+
+- (void)audioDidFinishDownloading:(DownloadedAudio *)downloadedAudio {
+    [downloadedAudioListArray insertObject:downloadedAudio atIndex:0];
+    NSInteger index = 0;
+    for (Audio *audio in tableViewDataSource) {
+        if ([audio.audioId isEqualToString:downloadedAudio.audioDetails.audioId]) {
+            index = [tableViewDataSource indexOfObject:audio];
+        }
+    }
+    Audio *audio = tableViewDataSource[index];
+    audio.state = Downloaded;
+    [tableViewDataSource replaceObjectAtIndex:Downloaded withObject:audio];
+    if (segmentControl.selectedSegmentIndex == 1) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [listTableView reloadData];
+        });
+    }else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            AudioListTableViewCell *cell = [listTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+            [self setButtonDownloadedState:cell.downloadButton];
+        });
+    }
+    [AppDelegate saveListOfDownloadedAudios:downloadedAudioListArray];
+    NSLog(@"Audio with name '%@' has been downloaded", downloadedAudio.audioDetails.title);
 }
 
 #pragma mark - Data Source 
@@ -94,7 +136,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [tableViewDataSource count];
+    NSInteger rowCount;
+    if (segmentControl.selectedSegmentIndex == 0) {
+        rowCount = [tableViewDataSource count];
+    }else {
+        rowCount = [downloadedAudioListArray count];
+    }
+    return rowCount;
 }
 
 
@@ -104,13 +152,19 @@
         Audio *audio = tableViewDataSource[indexPath.row];
         cell.titleLabel.text = audio.title;
         cell.artistLabel.text = audio.artist;
-        
+        if (audio.state == NotDownloaded) {
+            [self setButtonNotDownloadedState:cell.downloadButton];
+        }else if (audio.state == Downloading) {
+            [self setButtonDownloadingState:cell.downloadButton];
+        }else if (audio.state == Downloaded) {
+            [self setButtonDownloadedState:cell.downloadButton];
+        }
         return cell;
     }else {
         DownloadedAudioListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DownloadedAudioListCell" forIndexPath:indexPath];
-        DownloadedAudio *audio = tableViewDataSource[indexPath.row];
-        cell.titleLabel.text = audio.title;
-        cell.artistLabel.text = audio.artist;
+        DownloadedAudio *audio = downloadedAudioListArray[indexPath.row];
+        cell.titleLabel.text = audio.audioDetails.title;
+        cell.artistLabel.text = audio.audioDetails.artist;
         
         return cell;
     }
@@ -118,10 +172,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Audio *audio = tableViewDataSource[indexPath.row];
-    PlayerViewController *playerVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"playerVC"];
-    playerVC.selectedAudio = audio;
-    [self.navigationController pushViewController:playerVC animated:YES];
+    if (segmentControl.selectedSegmentIndex == 0) {
+        Audio *audio = tableViewDataSource[indexPath.row];
+        PlayerViewController *playerVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"playerVC"];
+        playerVC.selectedAudio = audio;
+        [self.navigationController pushViewController:playerVC animated:YES];
+    }else {
+        DownloadedAudio *audio = downloadedAudioListArray[indexPath.row];
+        PlayerViewController *playerVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"playerVC"];
+        playerVC.selectedAudio = audio;
+        [self.navigationController pushViewController:playerVC animated:YES];
+    }
+    
 }
 
 

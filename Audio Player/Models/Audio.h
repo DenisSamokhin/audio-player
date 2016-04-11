@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Audio : NSObject
+typedef enum {
+    NotDownloaded = 0,
+    Downloading = 1,
+    Downloaded = 2
+} DownloadingState;
+
+@interface Audio : NSObject <NSCoding>
 
 @property(nonatomic, strong) NSString *audioId;
 @property(nonatomic, strong) NSString *owner_id;
@@ -19,6 +25,7 @@
 @property(nonatomic, strong) NSString *lyrics_id;
 @property(nonatomic, strong) NSString *album_id;
 @property(nonatomic, strong) NSString *genre_id;
+@property (nonatomic) DownloadingState state;
 
 - (id)initWithDictionary:(NSDictionary *)dict;
 

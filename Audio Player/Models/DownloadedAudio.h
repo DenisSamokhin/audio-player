@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DownloadedAudio : NSObject
+@interface DownloadedAudio : NSObject <NSCoding>
 
-@property(nonatomic, strong) NSString *artist;
-@property(nonatomic, strong) NSString *title;
+@property(nonatomic, strong) NSString *path;
 @property(nonatomic, strong) Audio *audioDetails;
 
 - (id)initWithDictionary:(NSDictionary *)dict;

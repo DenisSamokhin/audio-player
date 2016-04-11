@@ -16,9 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = self.selectedAudio.title;
+    self.title = self.selectedAudio.audioDetails.title;
     // Do any additional setup after loading the view.
-    NSString *path = [NSString stringWithFormat:@"%@/HU-levitate.mp3",[[NSBundle mainBundle] resourcePath]];
+    NSString *path = self.selectedAudio.path;
     NSURL *url = [NSURL fileURLWithPath:path];
     NSError *error = nil;
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];

@@ -7,7 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DownloadAudioOperation.h"
 
-@interface DownloadQueue : NSOperationQueue
+@protocol DownloaderDelegate <NSObject>
+
+- (void)audioDidFinishDownloading:(DownloadedAudio *)downloadedAudio;
+
+@end
+
+@interface DownloadQueue : NSOperationQueue {
+    id <DownloaderDelegate> delegate;
+}
+
+@property (nonatomic, assign) id <DownloaderDelegate> delegate;
+
++ (id)shared;
+- (id)init;
+- (void)downloadAudio:(Audio *)audio;
+- (void)audioLoaded:(DownloadedAudio *)downloadedAudio;
 
 @end

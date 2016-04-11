@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DownloadAudioOperation : NSOperation
+@interface DownloadAudioOperation : NSOperation {
+
+}
+
+@property(retain) NSURL *targetURL;
+@property(retain) Audio *audio;
+
+- (id)initWithURL:(NSURL*)url andAudio:(Audio *)audio;
 
 @end
